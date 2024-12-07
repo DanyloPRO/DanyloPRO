@@ -1,0 +1,151 @@
+<html>
+<head>
+<title>code (1).txt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #bcbec4;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+code (1).txt</font>
+</center></td></tr></table>
+<pre>
+<span class="s0"># #глобальна область</span>
+<span class="s0"># name = 'max'</span>
+<span class="s0"># print(name)</span>
+<span class="s0"># def printName():</span>
+<span class="s0">#     print(name)</span>
+<span class="s0"># printName()</span>
+
+
+
+
+<span class="s0"># # local</span>
+<span class="s0"># def localVarExample():</span>
+<span class="s0">#     localVar = 123</span>
+<span class="s0">#     print(localVar)</span>
+<span class="s0">#     return localVar</span>
+<span class="s0">#</span>
+<span class="s0"># print(localVar)</span>
+<span class="s0">#</span>
+<span class="s0"># localVarExample()</span>
+
+
+
+
+
+<span class="s0"># # no-local</span>
+<span class="s0"># def localVarExample():</span>
+<span class="s0">#     localVar = 123</span>
+<span class="s0">#     def noLocalFuncExmpl():</span>
+<span class="s0">#         localVar2 = 456</span>
+<span class="s0">#</span>
+<span class="s0">#</span>
+<span class="s0"># print(localVar)</span>
+<span class="s0">#</span>
+<span class="s0"># localVarExample()</span>
+
+
+<span class="s0">#</span>
+<span class="s0">#</span>
+<span class="s0"># # global nolocal</span>
+<span class="s0"># localVar2 = 789</span>
+<span class="s0"># def localVarExample():</span>
+<span class="s0">#     localVar = 123</span>
+<span class="s0">#     def noLocalFuncExmpl():</span>
+<span class="s0">#         nonlocal localVar</span>
+<span class="s0">#         localVar = 321</span>
+<span class="s0">#         global localVar2</span>
+<span class="s0">#         localVar2 = 987</span>
+<span class="s0">#     noLocalFuncExmpl()</span>
+<span class="s0">#     print(localVar)</span>
+<span class="s0">#</span>
+<span class="s0"># localVarExample()</span>
+<span class="s0">#</span>
+<span class="s0"># print(localVar2)</span>
+<span class="s0">#</span>
+<span class="s0">#</span>
+<span class="s0">#</span>
+<span class="s0">#</span>
+<span class="s0">#</span>
+<span class="s0"># class Constants:</span>
+<span class="s0">#     CONST_EXAMPLE = 23</span>
+<span class="s0"># print(Constants.CONST_EXAMPLE)</span>
+<span class="s0">#</span>
+<span class="s0">#</span>
+
+
+
+
+
+
+<span class="s0">import random</span>
+
+<span class="s0">result = {&quot;computer&quot;: 0, &quot;player&quot;: 0}</span>
+
+<span class="s0">def game(result):</span>
+    <span class="s0">print('=================================')</span>
+    <span class="s0">print('==============GAME===============')</span>
+    <span class="s0">print('=================================')</span>
+    <span class="s0">choice = input(&quot;Select - R / P / S - &quot;)</span>
+    <span class="s0">computer_choice = random.choice(&quot;rps&quot;)</span>
+    <span class="s0">print('=================================')</span>
+    <span class="s0">print('your select - ', str.capitalize(choice))</span>
+    <span class="s0">print('computer select - ', str.capitalize(computer_choice))</span>
+    <span class="s0">choice = str.capitalize(choice)</span>
+    <span class="s0">computer_choice = str.capitalize(computer_choice)</span>
+    <span class="s0">if choice == computer_choice:</span>
+        <span class="s0">print('Result of the Game - Draw !!!')</span>
+        <span class="s0">print('Player - ', result['player'])</span>
+        <span class="s0">print('Computer - ', result['computer'])</span>
+    <span class="s0">elif choice == &quot;R&quot; and computer_choice == &quot;S&quot;:</span>
+        <span class="s0">result['player'] = result['player'] + 1</span>
+        <span class="s0">print('Result of the Game - WIN !!!')</span>
+        <span class="s0">print('Player - ', result['player'])</span>
+        <span class="s0">print('Computer - ', result['computer'])</span>
+    <span class="s0">elif choice == &quot;R&quot; and computer_choice == &quot;P&quot;:</span>
+        <span class="s0">result['computer'] = result['computer'] + 1</span>
+        <span class="s0">print('Result of the Game - LOSE !!!')</span>
+        <span class="s0">print('Player - ', result['player'])</span>
+        <span class="s0">print('Computer - ', result['computer'])</span>
+    <span class="s0">elif choice == &quot;S&quot; and computer_choice == &quot;P&quot;:</span>
+        <span class="s0">result['player'] = result['player'] + 1</span>
+        <span class="s0">print('Result of the Game - WIN !!!')</span>
+        <span class="s0">print('Player - ', result['player'])</span>
+        <span class="s0">print('Computer - ', result['computer'])</span>
+    <span class="s0">elif choice == &quot;S&quot; and computer_choice == &quot;R&quot;:</span>
+        <span class="s0">result['computer'] = result['computer'] + 1</span>
+        <span class="s0">print('Result of the Game - LOSE !!!')</span>
+        <span class="s0">print('Player - ', result['player'])</span>
+        <span class="s0">print('Computer - ', result['computer'])</span>
+    <span class="s0">elif choice == &quot;P&quot; and computer_choice == &quot;R&quot;:</span>
+        <span class="s0">result['player'] = result['player'] + 1</span>
+        <span class="s0">print('Result of the Game - WIN !!!')</span>
+        <span class="s0">print('Player - ', result['player'])</span>
+        <span class="s0">print('Computer - ', result['computer'])</span>
+    <span class="s0">elif choice == &quot;P&quot; and computer_choice == &quot;S&quot;:</span>
+        <span class="s0">result['computer'] = result['computer'] + 1</span>
+        <span class="s0">print('Result of the Game - LOSE !!!')</span>
+        <span class="s0">print('Player - ', result['player'])</span>
+        <span class="s0">print('Computer - ', result['computer'])</span>
+    <span class="s0">if result['player'] &lt;= 3 or result['computer'] &lt;= 3:</span>
+        <span class="s0">game(result)</span>
+    <span class="s0">else:</span>
+        <span class="s0">return 0</span>
+
+<span class="s0">game(result)</span>
+
+
+
+
+
+
+
+
+
+</pre>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<html>
+<head>
+<title>code (3).txt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #bcbec4;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+code (3).txt</font>
+</center></td></tr></table>
+<pre><span class="s0"># # параметр по замовчуванню</span>
+<span class="s0"># def fun_1(a, b = 2):</span>
+<span class="s0">#     return a+b</span>
+<span class="s0">#</span>
+<span class="s0"># print(fun_1(1, 7))</span>
+
+
+<span class="s0"># def black_hole(*args):</span>
+<span class="s0">#     print(args)</span>
+<span class="s0">#     print(type(args))</span>
+<span class="s0">#     for argument in args:</span>
+<span class="s0">#         print(argument)</span>
+<span class="s0">#</span>
+<span class="s0"># black_hole(2,3,54,56,123,43,&quot;Max&quot;,[123,32,123,321],23,1,2,3)</span>
+
+
+
+<span class="s0"># def func_2(**kwargs):</span>
+<span class="s0">#     print(kwargs)</span>
+<span class="s0">#     print(type(kwargs))</span>
+<span class="s0">#     # for argument in kwargs:</span>
+<span class="s0">#     #     print(argument)</span>
+<span class="s0">#     #     print(kwargs[argument])</span>
+<span class="s0">#     for key, value in kwargs.items():</span>
+<span class="s0">#         print(value)</span>
+<span class="s0">#     for key, value in kwargs.items():</span>
+<span class="s0">#         print(key)</span>
+<span class="s0">#</span>
+<span class="s0"># func_2(name = &quot;max&quot;, num1 = 1, num2 = 2, num3 = 3, num4 = 4, num5 = 5)</span>
+
+
+
+<span class="s0"># arr = [1,2,3,4,23,2,12,3,543,2,1,23,32,1,23,3,2,1,23,2,12]</span>
+<span class="s0">#</span>
+<span class="s0">#</span>
+<span class="s0">#</span>
+<span class="s0"># def sumNums(*args):</span>
+<span class="s0">#     result = 0</span>
+<span class="s0">#     for elem in args:</span>
+<span class="s0">#         result = result + elem</span>
+<span class="s0">#     print(result)</span>
+<span class="s0">#</span>
+<span class="s0"># sumNums(*arr)</span>
+
+
+<span class="s0">list_of_questions = [</span>
+    <span class="s0">'яке в тебе друге імя???',</span>
+    <span class="s0">'скільки тобі років???',</span>
+<span class="s0">]</span>
+<span class="s0">list_of_actions = [</span>
+    <span class="s0">'відіжмись 100 раз',</span>
+    <span class="s0">'пробіжка 1 км',</span>
+<span class="s0">]</span>
+<span class="s0">gamer_list = []</span>
+
+<span class="s0">def gamers(list):</span>
+    <span class="s0">while True:</span>
+        <span class="s0">name = input(&quot;Введіть імя - &quot;)</span>
+        <span class="s0">if 0 &lt; len(name) &lt;= 2:</span>
+            <span class="s0">continue</span>
+        <span class="s0">list.append(str.capitalize(name))</span>
+        <span class="s0">need_next_player = input(&quot;More players? – Y / N&quot;)</span>
+        <span class="s0">if str.lower(need_next_player) == str.lower(&quot;y&quot;) or need_next_player == str.lower(&quot;yes&quot;):</span>
+            <span class="s0">continue</span>
+        <span class="s0">else:</span>
+            <span class="s0">break</span>
+
+<span class="s0">gameres(gamer_list</span>
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</body>
+</html>

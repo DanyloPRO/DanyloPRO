@@ -1,0 +1,189 @@
+<html>
+<head>
+<title>цуакпкаау.txt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #bcbec4;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+цуакпкаау.txt</font>
+</center></td></tr></table>
+<pre><span class="s0">details_damage_price = {&quot;energy gun&quot;: 100,</span>
+<span class="s0">&quot;minigun&quot;: 70, &quot;Thor hammer&quot;: 50, &quot;laser gun&quot;: 80,</span>
+<span class="s0">&quot;rail gun&quot;: 90, &quot;sniper rifle&quot;: 150}</span>
+<span class="s0">details_survive_price = {&quot;shield&quot;: 50, &quot;energy</span>
+<span class="s0">shield&quot;: 80, &quot;resist&quot;: 30, &quot;evasion&quot;: 100,</span>
+<span class="s0">&quot;armor&quot;: 140}</span>
+<span class="s0">users_bot = {}</span>
+<span class="s0">users_list = []</span>
+<span class="s0">def player_maker(player_list):</span>
+ <span class="s0">user_choose = &quot;yes&quot;</span>
+ <span class="s0">while user_choose == &quot;yes&quot; or user_choose == &quot;y&quot;:</span>
+ <span class="s0">user_input = input(&quot;Input a Player name – &quot;)</span>
+ <span class="s0">if len(user_input)&lt;3:</span>
+ <span class="s0">continue</span>
+ <span class="s0">player_list.append(str.capitalize</span>
+ <span class="s0">(user_input))</span>
+ <span class="s0">user_choose = input(&quot;More players – Y/N – &quot;)</span>
+ <span class="s0">print(f&quot;Players – {str(player_list)[1:-1]}&quot;)</span>
+<span class="s0">def bot_maker(start_sum, player_list):</span>
+ <span class="s0">for player in player_list:</span>
+ <span class="s0">wallet = start_sum</span>
+ <span class="s0">users_bot[player] = {}</span>
+ <span class="s0">while wallet&gt;=min(details_damage_price.values()):</span>
+<span class="s0">string_1 = f&quot;{player}, you have {wallet} coins&quot;</span>
+<span class="s0">print(f&quot;{string_1:=^82}&quot;)</span>
+<span class="s0">string_2 = &quot;You can buy:&quot;</span>
+<span class="s0">print(f&quot;{string_2:-^82}&quot;)</span>
+<span class="s0">print(&quot;{detail:^^80}&quot;.format(detail=&quot;Damage deal</span>
+ <span class="s0">details&quot;))</span>
+<span class="s0">for gun, price in details_damage_price.items():</span>
+ <span class="s0">print(f&quot;{gun} – {price}&quot;)</span>
+<span class="s0">print(&quot;{detail:^^80}&quot;.format(detail=&quot;Survive</span>
+ <span class="s0">details&quot;))</span>
+<span class="s0">for survive_detail, price in details_survive_</span>
+<span class="s0">price.items():</span>
+ <span class="s0">print(f&quot;{survive_detail} – {price}&quot;)</span>
+ <span class="s0">user_choose = str.lower(input(&quot;Choose the</span>
+<span class="s0">detail – &quot;))</span>
+<span class="s0">if user_choose in users_bot[player].keys():</span>
+ <span class="s0">print(&quot;{string:!^80}&quot;.format(string=&quot;Your</span>
+ <span class="s0">bot has this detail&quot;))</span>
+ <span class="s0">continue</span>
+<span class="s0">if user_choose in details_damage_price.keys():</span>
+ <span class="s0">if wallet &lt; details_damage_price[user_choose]:</span>
+ <span class="s0">print(&quot;{string:!^80}&quot;.format(string=&quot;Not</span>
+ <span class="s0">enough coins&quot;))</span>
+ <span class="s0">continue</span>
+ <span class="s0">wallet -= details_damage_price[user_choose]</span>
+ <span class="s0">users_bot[player][user_choose] =</span>
+ <span class="s0">details_damage_price[user_choose]</span>
+<span class="s0">else:</span>
+ <span class="s0">if user_choose in details_survive_price. keys():</span>
+ <span class="s0">if wallet &lt; details_survive_price[user_</span>
+ <span class="s0">choose]:</span>
+ <span class="s0">print(&quot;{string:!^80}\n&quot;.format(string=&quot;Not</span>
+<span class="s0">enough coins&quot;))</span>
+ <span class="s0">continue</span>
+ <span class="s0">wallet -= details_survive_price[user_choose]</span>
+ <span class="s0">users_bot[player][user_choose] = details_</span>
+<span class="s0">survive_price[user_choose]</span>
+ <span class="s0">else:</span>
+ <span class="s0">print(&quot;\nYour choose is wrong!\n&quot;)</span>
+ <span class="s0">continue</span>
+<span class="s0">print(f&quot;\n\n{player} bot details:</span>
+<span class="s0">{str(users_bot[player].keys())[11:-2]}\n\n&quot;)</span>
+<span class="s0">print(f&quot;\n\n{player} bot details:</span>
+<span class="s0">{str(users_bot[player].keys())[11:-2]}\n\n&quot;)</span>
+<span class="s0">player_maker(player_list)</span>
+<span class="s0">start_sum = int(input(&quot;Input start capital – &quot;))</span>
+<span class="s0">max_start_sum = sum(details_damage_price.</span>
+<span class="s0">values()) + sum(details_survive_price.values())</span>
+<span class="s0">min_start_sum = min(details_damage_price.</span>
+<span class="s0">values())</span>
+<span class="s0">if start_sum &gt; max_start_sum:</span>
+ <span class="s0">start_sum = max_start_sum</span>
+<span class="s0">if start_sum &lt; min_start_sum:</span>
+ <span class="s0">start_sum = min_start_sum</span>
+ <span class="s0">details_damage_price = {&quot;energy gun&quot;: 100,</span>
+<span class="s0">&quot;minigun&quot;: 70, &quot;Thor hammer&quot;: 50, &quot;laser gun&quot;: 80,</span>
+<span class="s0">&quot;rail gun&quot;: 90, &quot;sniper rifle&quot;: 150}</span>
+<span class="s0">details_survive_price = {&quot;shield&quot;: 50, &quot;energy</span>
+<span class="s0">shield&quot;: 80, &quot;resist&quot;: 30, &quot;evasion&quot;: 100,</span>
+<span class="s0">&quot;armor&quot;: 140}</span>
+<span class="s0">users_bot = {}</span>
+<span class="s0">player_list = []</span>
+<span class="s0">def player_maker(player_list):</span>
+ <span class="s0">user_choose = &quot;yes&quot;</span>
+ <span class="s0">while user_choose == &quot;yes&quot; or user_choose == &quot;y&quot;:</span>
+ <span class="s0">user_input = input(&quot;Input a Player name – &quot;)</span>
+ <span class="s0">if len(user_input)&lt;3:</span>
+ <span class="s0">continue</span>
+<span class="s0">player_list.append(str.capitalize</span>
+ <span class="s0">(user_input))</span>
+ <span class="s0">user_choose = input(&quot;More players – Y/N – &quot;)</span>
+ <span class="s0">print(f&quot;Players – {str(player_list)[1:-1]}&quot;)</span>
+<span class="s0">def bot_maker(start_sum, player_list):</span>
+ <span class="s0">for player in player_list:</span>
+ <span class="s0">wallet = start_sum</span>
+ <span class="s0">users_bot[player] = {}</span>
+ <span class="s0">while wallet &gt;= min(details_damage_price.</span>
+ <span class="s0">values()):</span>
+ <span class="s0">string_1 = f&quot;{player}, you have {wallet}</span>
+ <span class="s0">coins&quot;</span>
+ <span class="s0">print(f&quot;{string_1:=^82}&quot;)</span>
+ <span class="s0">string_2 = &quot;You can buy:&quot;</span>
+ <span class="s0">print(f&quot;{string_2:-^82}&quot;)</span>
+ <span class="s0">print(&quot;{detail:^^80}&quot;.format(detail=&quot;Damage</span>
+ <span class="s0">deal details&quot;))</span>
+ <span class="s0">for gun, price in details_damage_price.</span>
+<span class="s0">items():</span>
+ <span class="s0">print(f&quot;{gun} – {price}&quot;)</span>
+ <span class="s0">print(&quot;{detail:^^80}&quot;.format(detail=&quot;Survive</span>
+<span class="s0">details&quot;))</span>
+ <span class="s0">for survive_detail, price in</span>
+ <span class="s0">details_survive_price.items():</span>
+ <span class="s0">print(f&quot;{survive_detail} – {price}&quot;)</span>
+<span class="s0">user_choose = str.lower(input(&quot;Choose the</span>
+<span class="s0">detail – &quot;))</span>
+ <span class="s0">if user_choose in users_bot[player].keys():</span>
+ <span class="s0">print(&quot;{string:!^80}&quot;.format(string=&quot;Your</span>
+<span class="s0">bot has this detail&quot;))</span>
+ <span class="s0">continue</span>
+ <span class="s0">if user_choose in details_damage_price.keys():</span>
+ <span class="s0">if wallet &lt;</span>
+ <span class="s0">details_damage_price[user_choose]:</span>
+ <span class="s0">print(&quot;{string:!^80}&quot;.format(string=&quot;Not</span>
+<span class="s0">enough coins&quot;))</span>
+ <span class="s0">continue</span>
+ <span class="s0">wallet -= details_damage_price[user_choose]</span>
+ <span class="s0">users_bot[player][user_choose] =</span>
+ <span class="s0">details_damage_price[user_choose]</span>
+ <span class="s0">else:</span>
+ <span class="s0">if user_choose in details_survive_price.keys():</span>
+ <span class="s0">if wallet &lt;</span>
+ <span class="s0">details_survive_price[user_choose]:</span>
+ <span class="s0">print(&quot;{string:!^80}\n&quot;.</span>
+<span class="s0">format(string=&quot;Not enough coins&quot;))</span>
+ <span class="s0">continue</span>
+ <span class="s0">wallet -= details_survive_price[user_choose]</span>
+ <span class="s0">users_bot[player][user_choose] =</span>
+ <span class="s0">details_survive_price[user_choose]</span>
+ <span class="s0">else:</span>
+ <span class="s0">print(&quot;\nYour choose is wrong!\n&quot;)</span>
+<span class="s0">continue</span>
+ <span class="s0">print(f&quot;\n\n{player} bot details:</span>
+ <span class="s0">{str(users_bot[player].keys())[11:-2]}\</span>
+ <span class="s0">n\n&quot;)</span>
+ <span class="s0">for player in player_list:</span>
+ <span class="s0">print(f&quot;{player} bot details:</span>
+ <span class="s0">{str(users_bot[player].keys())[11:-2]}&quot;)</span>
+<span class="s0">player_maker(player_list)</span>
+<span class="s0">start_sum = int(input(&quot;Input start capital – &quot;))</span>
+<span class="s0">max_start_sum = sum(details_damage_price.</span>
+<span class="s0">values()) + sum(details_survive_price.values())</span>
+<span class="s0">min_start_sum = min(details_damage_price.</span>
+ <span class="s0">values())</span>
+<span class="s0">if start_sum &gt; max_start_sum:</span>
+ <span class="s0">start_sum = max_start_sum</span>
+<span class="s0">if start_sum &lt; min_start_sum:</span>
+ <span class="s0">start_sum = min_start_sum</span>
+<span class="s0">bot_maker(start_sum=start_sum, player_list=</span>
+<span class="s0">player_list)</span>
+
+
+
+
+
+
+
+
+
+
+</pre>
+</body>
+</html>
