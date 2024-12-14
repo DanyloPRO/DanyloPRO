@@ -1,0 +1,6 @@
+class Student: 
+     
+    def greeting(self): 
+        print("hello I am Sviatoslav") 
+ 
+ 
