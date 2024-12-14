@@ -2,5 +2,8 @@ class Student:
      
     def greeting(self): 
         print("hello I am Sviatoslav") 
+def greeting(self):
+print("this is my teacher Kaplun Maksym")
+
  
  
