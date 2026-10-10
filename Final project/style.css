@@ -1,0 +1,434 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #050816;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 6%;
+
+    background: #080d20;
+
+    border-bottom: 1px solid #24345c;
+
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+header h2 {
+    margin: 0;
+    color: #54e8ff;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: #9daecc;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #54e8ff;
+}
+
+
+
+.home {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.hero {
+    min-height: 600px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 50px;
+}
+
+.small-title {
+    color: #54e8ff;
+    letter-spacing: 4px;
+}
+
+.hero h1 {
+    font-size: 70px;
+    margin: 20px 0;
+}
+
+.hero h1 span {
+    color: #54e8ff;
+}
+
+.hero p {
+    color: #9daecc;
+    line-height: 1.7;
+}
+
+.button {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding: 15px 25px;
+
+    background: #54e8ff;
+
+    color: #031018;
+
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.button:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 0 30px #54e8ff;
+}
+
+
+
+.planet {
+    width: 300px;
+    height: 300px;
+
+    margin: auto;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 120px;
+
+    background:
+        radial-gradient(
+            circle,
+            #3b82f6,
+            #111b54
+        );
+
+    box-shadow:
+        0 0 80px #54e8ff;
+
+    animation: floating 4s infinite;
+}
+
+@keyframes floating {
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+}
+
+
+
+.cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+
+    padding-bottom: 80px;
+}
+.card {
+    background: #0c142c;
+
+    border: 1px solid #24345c;
+
+    border-radius: 15px;
+
+    padding: 25px;
+
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+
+    border-color: #54e8ff;
+
+    box-shadow: 0 0 25px #54e8ff22;
+}
+
+.card p {
+    color: #9daecc;
+
+    line-height: 1.6;
+}
+
+
+
+.game-page {
+    max-width: 1000px;
+
+    margin: auto;
+
+    padding: 50px 20px;
+}
+
+.game-page h1 {
+    text-align: center;
+
+    font-size: 45px;
+}
+
+.stats {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin: 20px;
+}
+
+.stats div {
+    background: #0c142c;
+
+    border: 1px solid #24345c;
+
+    padding: 12px 20px;
+
+    border-radius: 10px;
+}
+
+.stats span {
+    color: #54e8ff;
+
+    font-weight: bold;
+}
+
+
+.game-container {
+    position: relative;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    border: 1px solid #24345c;
+
+    border-radius: 15px;
+}
+
+canvas {
+    width: 100%;
+
+    display: block;
+
+    background: #02050d;
+}
+
+#overlay {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.65);
+}
+
+#overlay h2 {
+    font-size: 40px;
+
+    color: #54e8ff;
+
+    text-shadow:
+        0 0 20px #54e8ff;
+}
+
+#startButton,
+#newQuestion,
+#checkAnswer {
+    padding: 12px 20px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #54e8ff;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+#startButton:hover,
+#newQuestion:hover,
+#checkAnswer:hover {
+    box-shadow: 0 0 20px #54e8ff;
+}
+
+
+
+.controls {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin: 20px;
+}
+
+.controls button {
+    width: 65px;
+
+    height: 50px;
+
+    border: 1px solid #24345c;
+
+    border-radius: 10px;
+
+    background: #0c142c;
+
+    color: white;
+
+    font-size: 22px;
+
+    cursor: pointer;
+}
+
+.controls button:hover {
+    background: #54e8ff;
+
+    color: black;
+}
+
+
+
+.calculator {
+    background: #0c142c;
+
+    border: 1px solid #24345c;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    text-align: center;
+}
+
+.calculator input {
+    padding: 12px;
+
+    background: #050816;
+
+    border: 1px solid #24345c;
+
+    color: white;
+
+    border-radius: 8px;
+}
+
+#message {
+    color: #63f59b;
+
+    min-height: 20px;
+}
+
+
+
+.about {
+    max-width: 900px;
+
+    margin: auto;
+
+    padding: 70px 20px;
+}
+
+.about h1 {
+    font-size: 50px;
+}
+
+.about > .card {
+    margin: 20px 0;
+}
+
+
+
+footer {
+    text-align: center;
+
+    padding: 30px;
+
+    color: #657795;
+
+    border-top: 1px solid #24345c;
+}
+
+
+
+@media(max-width: 700px) {
+
+    header {
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+
+        padding: 50px 20px;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .planet {
+        width: 220px;
+        height: 220px;
+        font-size: 80px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+
+        padding: 20px;
+    }
+
+    .stats {
+        flex-wrap: wrap;
+    }
+
+}
