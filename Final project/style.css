@@ -432,3 +432,178 @@ footer {
     }
 
 }
+
+.game-page {
+    max-width: 1100px; 
+    margin: auto;
+    padding: 50px 20px;
+}
+
+.game-layout {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.canvas-container {
+    position: relative;
+    flex-grow: 1;
+    border: 1px solid #24345c;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #02050d;
+}
+
+
+.weapon-sidebar {
+    width: 250px;
+    background: #0c142c;
+    border: 1px solid #24345c;
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.weapon-sidebar h3 {
+    margin: 0;
+    color: #54e8ff;
+    text-align: center;
+    font-size: 24px;
+}
+
+.weapon-btn {
+    background: #050816;
+    border: 2px solid #24345c;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.weapon-btn h4 {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+    color: white;
+}
+
+.weapon-btn p {
+    margin: 0;
+    font-size: 12px;
+    color: #9daecc;
+}
+
+
+.weapon-btn:hover:not(.locked) {
+    border-color: #54e8ff;
+}
+
+.weapon-btn.active {
+    border-color: #63f59b;
+    box-shadow: 0 0 15px rgba(99, 245, 155, 0.3);
+}
+
+.weapon-btn.active h4 {
+    color: #63f59b;
+}
+
+.weapon-btn.locked {
+    opacity: 0.4;
+    cursor: not-allowed;
+    border-color: #24345c;
+}
+.weapon-btn.locked h4 {
+    color: #657795;
+}
+
+
+
+.weapon-sidebar {
+    width: 270px;
+    height: 500px; 
+    background: #0c142c;
+    border: 1px solid #24345c;
+    border-radius: 15px;
+    padding: 15px 5px 15px 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.weapon-sidebar h3 {
+    margin: 0 0 15px 0;
+    color: #54e8ff;
+    text-align: center;
+    font-size: 22px;
+}
+
+.weapon-list {
+    flex-grow: 1;
+    overflow-y: auto; 
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-right: 10px;
+}
+
+
+.weapon-list::-webkit-scrollbar {
+    width: 6px;
+}
+.weapon-list::-webkit-scrollbar-track {
+    background: #050816; 
+    border-radius: 10px;
+}
+.weapon-list::-webkit-scrollbar-thumb {
+    background: #54e8ff; 
+    border-radius: 10px;
+}
+
+.weapon-btn {
+    background: #050816;
+    border: 2px solid #24345c;
+    color: white;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: left;
+    transition: 0.3s;
+    flex-shrink: 0;
+}
+
+.weapon-btn h4 {
+    margin: 0 0 5px 0;
+    font-size: 15px;
+    color: white;
+}
+
+.weapon-btn p {
+    margin: 0;
+    font-size: 11px;
+    color: #9daecc;
+}
+
+
+.weapon-btn:hover:not(.locked) {
+    border-color: #54e8ff;
+}
+
+.weapon-btn.active {
+    border-color: #63f59b;
+    box-shadow: 0 0 15px rgba(99, 245, 155, 0.3);
+}
+
+.weapon-btn.active h4 {
+    color: #63f59b;
+}
+
+.weapon-btn.locked {
+    opacity: 0.4;
+    cursor: not-allowed;
+    border-color: #24345c;
+}
+.weapon-btn.locked h4 {
+    color: #657795;
+}

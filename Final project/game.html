@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="ua">
-
 <head>
-   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Defender - Гра</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
-    <h2> NEON DEFENDER</h2>
-
+    <h2>🚀 NEON DEFENDER</h2>
     <nav>
-        
+        <a href="index.html">Дім</a>
+        <a href="game.html">Гра</a>
+        <a href="about.html">Про проект</a>
     </nav>
 </header>
 
 <main class="game-page">
-
-    <h1> Neon Defender</h1>
+    <h1>Гра Neon Defender</h1>
 
     <div class="stats">
         <div> Score: <span id="score">0</span></div>
@@ -25,82 +26,101 @@
         <div> Level: <span id="level">1</span></div>
     </div>
 
-    <div class="game-container">
+    <div class="game-layout">
+        
+        <div class="canvas-container">
+            <canvas id="gameCanvas" width="800" height="500"></canvas>
+            
+            <div id="overlay">
+                <h2>NEON DEFENDER</h2>
+                <p>Захисти галактику від червоних метеорів!</p>
+                <button id="startButton">▶ Почати гру</button>
+            </div>
 
-        <canvas id="gameCanvas"
-                width="900"
-                height="500">
-        </canvas>
-
-        <div id="overlay">
-
-            <h2>NEON DEFENDER</h2>
-
-            <p>
-               
-            </p>
-
-            <button id="startButton">
-                
-            </button>
-
+            <!-- NEU: Second Chance Overlay -->
+            <div id="secondChanceOverlay" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); color: white; flex-direction: column; justify-content: center; align-items: center; z-index: 100;">
+                <h2>ДРУГИЙ ШАНС</h2>
+                <p>Виріши 3 задачі за <span id="scTimer" style="color: #ff4f75; font-weight: bold; font-size: 1.2em;">10</span> секунд, щоб вижити!</p>
+                <p>Вирішено: <span id="scSolved">0</span> / 3</p>
+                <h3 id="scQuestion" style="font-size: 2em; margin: 10px 0;">?</h3>
+                <input id="scAnswer" type="number" placeholder="відповідь" style="font-size: 1.2em; text-align: center; margin-bottom: 10px;">
+                <div>
+                    <button id="scCheck">Перевірити</button>
+                    <button id="scSkip">Нове завдання (Залишилось: 1)</button>
+                </div>
+                <p id="scMessage" style="height: 20px; margin-top: 10px;"></p>
+            </div>
         </div>
+
+        <aside class="weapon-sidebar">
+            <h3>Зброя (1-10)</h3>
+            <div class="weapon-list">
+                <div id="weapon1" class="weapon-btn active" onclick="selectWeapon(1)">
+                    <h4>1. Базовий лазер</h4>
+                    <p>Рівень 1 | : 1</p>
+                </div>
+                <div id="weapon2" class="weapon-btn locked" onclick="selectWeapon(2)">
+                    <h4>2. Синій подвійний</h4>
+                    <p>Розблокується на Рівні 2 | : 2</p>
+                </div>
+                <div id="weapon3" class="weapon-btn locked" onclick="selectWeapon(3)">
+                    <h4>3. Неоновий розсіювач</h4>
+                    <p>Розблокується на Рівні 4 | : 2</p>
+                </div>
+                <div id="weapon4" class="weapon-btn locked" onclick="selectWeapon(4)">
+                    <h4>4. Зелений кулемет</h4>
+                    <p>Розблокується на Рівні 6 |</p>
+                </div>
+                <div id="weapon5" class="weapon-btn locked" onclick="selectWeapon(5)">
+                    <h4>5. Червона гармата</h4>
+                    <p>Розблокується на Рівні 8 | : 5</p>
+                </div>
+                <div id="weapon6" class="weapon-btn locked" onclick="selectWeapon(6)">
+                    <h4>6. Плазмова хвиля</h4>
+                    <p>Розблокується на Рівні 10 | </p>
+                </div>
+                <div id="weapon7" class="weapon-btn locked" onclick="selectWeapon(7)">
+                    <h4>7. Бокові стрільці</h4>
+                    <p>Розблокується на Рівні 12 | </p>
+                </div>
+                <div id="weapon8" class="weapon-btn locked" onclick="selectWeapon(8)">
+                    <h4>8. Фіолетовий вибух</h4>
+                    <p>Розблокується на Рівні 15 |: 6</p>
+                </div>
+                <div id="weapon9" class="weapon-btn locked" onclick="selectWeapon(9)">
+                    <h4>9. Зоряний пил</h4>
+                    <p>Розблокується на Рівні 20 | 5 напрямків</p>
+                </div>
+                <div id="weapon10" class="weapon-btn locked" onclick="selectWeapon(10)">
+                    <h4>10. Омега-промінь</h4>
+                    <p>Розблокується на Рівні 25 | : 10</p>
+                </div>
+            </div>
+        </aside>
 
     </div>
 
     <div class="controls">
-
-        <button id="leftButton">
-            ◀
-        </button>
-
-        <button id="pauseButton">
-            ⏸
-        </button>
-
-        <button id="rightButton">
-            ▶
-        </button>
-
+        <button id="leftButton">◀</button>
+        <button id="pauseButton">⏸</button>
+        <button id="rightButton">▶</button>
     </div>
 
     <section class="calculator">
-
-        <h2></h2>
-
-        <p>
-            
-        </p>
-
-        <h2 id="question">
-            ?
-        </h2>
-
-        <input
-            id="answer"
-            type="number"
-            placeholder="відповідь">
-
-        <button id="newQuestion">
-            Нове завдання
-        </button>
-
-        <button id="checkAnswer">
-            Перевірити
-        </button>
-
+        <h2>Математичний бонус</h2>
+        <p>Правильна відповідь дає +100 очок, що допомагає швидше відкривати нову зброю!</p>
+        <h2 id="question">?</h2>
+        <input id="answer" type="number" placeholder="відповідь">
+        <button id="newQuestion">Нове завдання</button>
+        <button id="checkAnswer">Перевірити</button>
         <p id="message"></p>
-
     </section>
-
 </main>
 
 <footer>
-    
+    Neon Defender © 2026
 </footer>
 
 <script src="game.js"></script>
-
 </body>
 </html>
-
